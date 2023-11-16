@@ -12,8 +12,8 @@ app.get('/', function (req, res) {
     res.render('index')
 });
 
-app.listen(process.env.PORT_HTTP, () => {
+app.listen(process.env.PORT, () => {
     if (process.env.APP_ENV == 'dev') {
-        console.log(`Server is running on http://localhost:${process.env.PORT_HTTP}`);
+        console.log(`Server is running on http://localhost:${process.env.PORT}`);
     }
 });
