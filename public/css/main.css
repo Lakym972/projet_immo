@@ -1,0 +1,12 @@
+.nav-link {
+    color: white;
+}
+
+.link-logo {
+    width: 60px;
+}
+
+.container.list {
+    display: flex;
+}
+
