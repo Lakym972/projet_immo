@@ -2,3 +2,5 @@ extends ../layout.pug
 
 block content 
     h1 Page d'accueil 
+    if session.user 
+        p Bonjour #{session.user.firstname} #{session.user.lastname}

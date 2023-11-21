@@ -2,10 +2,16 @@ extends ../layout.pug
 
 block content 
     h1 Inscription 
-
+    if error 
+        .alert.alert-danger #{error}
     .container 
-        form.needs-validation(action="/" method="post")
+        form.needs-validation(action="/register" method="post")
             .row.g-3
+                .col-12
+                    label.form-label(for="gender") Genre
+                    select(class="form-control" placeholder="gender" name="gender")
+                        option(value="1") Monsieur
+                        option(value="2") Madame
                 .col-sm-6
                     label.form-label(for="firstname") Prénom
                     input#firstName.form-control(type="text" name="firstname") 
@@ -15,14 +21,6 @@ block content
                     label.form-label(for="lastname") Nom
                     input#lastName.form-control(type="text" name="lastname")
                     .invalid-feedback
-                        | Valid last name is required.
-                .col-12
-                    label.form-label(for="username") Username
-                    .input-group.has-validation
-                        span.input-group-text @
-                        input#username.form-control(type="text")
-                        .invalid-feedback
-                            | Your username is required.
                 .col-12
                     label.form-label(for="email") Email 
                     span.text-body-secondary
@@ -30,17 +28,17 @@ block content
                     .invalid-feedback
                         | Please enter a valid email address for shipping updates.
                 .col-12
-                    label.form-label(for="address") Address
-                    input#address.form-control(type="text")
+                    label.form-label(for="phone") Téléphone
+                    input#phone.form-control(type="text" name="phone")
                     .invalid-feedback
                         | Please enter your shipping address.
                 .col-12
-                    label.form-label(for="address2") Address 2 
+                    label.form-label(for="password") Mot de passe
                     span.text-body-secondary
-                    input#address2.form-control(type="text")
+                    input#password.form-control(type="password" name="password")
                 .col-md-6
                     label.form-label(for="city") Ville 
-                    input#address.form-control(type="text" name="city")
+                    input#city.form-control(type="text" name="city")
                     .invalid-feedback
                         | Please enter your shipping address.
                 .col-md-4

@@ -1,8 +1,29 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const session = require('express-session');
+const flash = require('express-flash-messages');
+const Mailjet = require('node-mailjet');
 require('dotenv').config();
 
+app.use(session({secret: process.env.APP_KEY, resave:false, saveUninitialized:false, cookie: {maxAge:3600000}}));
+/* if(process.env.APP_ENV === 'dev') {
+    app.use((req,res, next) => {
+        req.session.user = {
+            id : infosUser.id,
+            gender : infosUser.gender,
+            firstname : infosUser.firstname,
+            lastname : infosUser.lastname,
+            email : infosUser.email
+        };
+        next();
+    });
+} */
+app.use((req,res, next) => {
+    res.locals.session = req.session;
+    next();
+})
+app.use(flash());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'templates'));

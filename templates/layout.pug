@@ -28,21 +28,31 @@ html(lang="en")
                                 a.nav-link(href='#') Bureaux & commerces
                                 li.nav-item
                                 a.nav-link(href='#') Vendre
-                                li.nav-item
-                                a.nav-link(href='#') Admin 
                             li.nav-item.dropdown
                                 a.nav-link.dropdown-toggle(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
                                     | Espace Utilisateur 
                                 ul.dropdown-menu
-                                    li
-                                        a.dropdown-item(href='/register') S'inscrire
-                                    li
-                                        a.dropdown-item(href='#') Se connecter 
-                                    li
-                                        hr.dropdown-divider
+                                    if session.user 
+                                        li
+                                            a.dropdown-item(href='/login/logout') Se déconnecter 
+                                    else 
+                                        li
+                                            a.dropdown-item(href='/register') S'inscrire
+                                        li
+                                            a.dropdown-item(href='/login') Se connecter 
+                                        li
+                                            hr.dropdown-divider
                         form.d-flex(role='search')
                             input.form-control.me-2(type='search' placeholder='Rechercher..' aria-label='Search')
                             button.btn.btn-success(type='submit') Rechercher
+        
+        - var messages = getMessages()
+        if messages.notify
+            each msg in messages.notify
+                .alert.alert-info= msg
+        if messages.error
+            each msg in messages.error
+                .alert.alert-danger= msg
 
         block content 
 

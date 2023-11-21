@@ -5,9 +5,13 @@
     "migration": "node ./data/make.js migration"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.3",
     "mysql2": "^3.6.3",
+    "node-mailjet": "^6.0.4",
     "pug": "^3.0.2"
   }
 }
