@@ -10,3 +10,12 @@
     display: flex;
 }
 
+.offcanvas-link {
+    color: blue;
+    text-decoration: none;
+}
+
+h1 {
+    font-size: x-large;
+    margin-top: 20px;
+}

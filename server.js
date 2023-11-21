@@ -6,19 +6,21 @@ const flash = require('express-flash-messages');
 const Mailjet = require('node-mailjet');
 require('dotenv').config();
 
+
+// FAKE SESSION
 app.use(session({secret: process.env.APP_KEY, resave:false, saveUninitialized:false, cookie: {maxAge:3600000}}));
-/* if(process.env.APP_ENV === 'dev') {
+if(process.env.APP_ENV === 'dev') {
     app.use((req,res, next) => {
         req.session.user = {
-            id : infosUser.id,
-            gender : infosUser.gender,
-            firstname : infosUser.firstname,
-            lastname : infosUser.lastname,
-            email : infosUser.email
+            id : '2',
+            gender : '1',
+            firstname : 'Anthony',
+            lastname : 'PIERRE-CHARLES',
+            email : 'thor@gmail.com'
         };
         next();
     });
-} */
+}
 app.use((req,res, next) => {
     res.locals.session = req.session;
     next();

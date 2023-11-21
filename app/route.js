@@ -1,6 +1,7 @@
 let homeController = require('../src/controllers/HomeController.js');
 let registerController = require('../src/controllers/RegisterController.js');
 let loginController = require('../src/controllers/LoginController.js');
+let adminController = require('../src/controllers/AdminController.js');
 
 module.exports = (app) => {
 
@@ -30,6 +31,14 @@ module.exports = (app) => {
 
     app.get('/login/logout', (req, res) => {
         loginController.logout(req, res)
+    });
+
+    app.get('/admin', (req, res) => {
+        adminController.index(req, res)
+    });
+
+    app.get('/admin/list', (req, res) => {
+        adminController.list(req, res)
     });
 }
 

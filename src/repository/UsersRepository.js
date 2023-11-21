@@ -17,4 +17,10 @@ module.exports = class UsersRepository {
             return (result[0].length > 0 ? result[0][0] : null);
         });
     }
+
+    async getAllUsers() {
+        return await con.promise().query('SELECT * FROM `users`').then((result) => {
+            return (result[0].length != 0 ? result[0] : null);
+        });
+    }
 }
