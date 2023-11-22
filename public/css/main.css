@@ -19,3 +19,13 @@ h1 {
     font-size: x-large;
     margin-top: 20px;
 }
+
+#i-trash {
+    text-decoration: none;
+    color: white;
+}
+
+#i-pen {
+    text-decoration: none;
+    color: white;
+}

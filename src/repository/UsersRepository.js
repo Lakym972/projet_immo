@@ -23,4 +23,21 @@ module.exports = class UsersRepository {
             return (result[0].length != 0 ? result[0] : null);
         });
     }
+    
+    async deleteUser(id) {
+        await con.promise().query('DELETE FROM `users` WHERE ?', { id });
+    }
+
+    async getUserById(id) {
+        return await con.promise().query('SELECT * FROM `users` WHERE ?', { id }).then((result) => {
+             return (result[0].length > 0 ? result[0][0] : null);
+         });
+    }
+
+    async editUser(user, id) {
+        return await con.promise().query(
+            'UPDATE `users` SET `firstname` = ?, `lastname` = ?, `email` = ?, `gender` = ? WHERE `users`.`id`= ?', 
+            [user.firstname, user.lastname, user.email, user.gender, id]
+        );
+    }
 }

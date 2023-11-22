@@ -37,8 +37,21 @@ module.exports = (app) => {
         adminController.index(req, res)
     });
 
-    app.get('/admin/list', (req, res) => {
+    app.get('/admin/user/list', (req, res) => {
         adminController.list(req, res)
     });
+
+    app.get('/admin/user/delete/:id([0-9]+)', (req, res) => {
+        adminController.supp(req, res)
+    });
+
+    app.get('/admin/user/edit/:id([0-9]+)', (req, res) => {
+        adminController.edit(req, res)
+    });
+
+    app.post('/admin/user/edit/:id([0-9]+)', (req, res) => {
+        adminController.update(req, res)
+    });
+
 }
 

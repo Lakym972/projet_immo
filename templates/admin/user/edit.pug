@@ -1,12 +1,11 @@
-extends ../layout.pug
+extends ../adminlayout.pug
 
-block content 
-    h1 Inscription 
+block content
+
+    h1 utilisateur
     hr
-    if error 
-        .alert.alert-danger #{error}
     .container 
-        form.needs-validation(action="/register" method="post")
+        form.needs-validation(method="post")
             .row.g-3
                 .col-12
                     label.form-label(for="gender") Genre
@@ -15,25 +14,25 @@ block content
                         option(value="2") Madame
                 .col-sm-6
                     label.form-label(for="firstname") Prénom
-                    input#firstName.form-control(type="text" name="firstname") 
+                    input#firstName.form-control(type="text" name="firstname" value= firstname) 
                     .invalid-feedback
                         | Valid first name is required.
                 .col-sm-6
                     label.form-label(for="lastname") Nom
-                    input#lastName.form-control(type="text" name="lastname")
+                    input#lastName.form-control(type="text" name="lastname" value= lastname)
                     .invalid-feedback
                 .col-12
                     label.form-label(for="email") Email 
                     span.text-body-secondary
-                    input#email.form-control(type="email" name="email", placeholder="you@example.com")
+                    input#email.form-control(type="email" name="email", placeholder="you@example.com" value= email)
                     .invalid-feedback
                         | Please enter a valid email address for shipping updates.
                 .col-12
                     label.form-label(for="phone") Téléphone
-                    input#phone.form-control(type="text" name="phone")
+                    input#phone.form-control(type="text" name="phone" value= phone)
                     .invalid-feedback
                         | Please enter your shipping address.
-                .col-12
+                //.col-12
                     label.form-label(for="password") Mot de passe
                     span.text-body-secondary
                     input#password.form-control(type="password" name="password")
@@ -55,5 +54,4 @@ block content
                     input#save-info.form-check-input(type="checkbox")
                     label.form-check-label(for="save-info") Save this information for next time
                 hr.my-4
-                button.w-100.btn.btn-primary.btn-lg(type="submit") Insciption
-            
+                button.w-100.btn.btn-primary.btn-lg(type="submit") Modifier

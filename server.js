@@ -7,8 +7,8 @@ const Mailjet = require('node-mailjet');
 require('dotenv').config();
 
 
-// FAKE SESSION
 app.use(session({secret: process.env.APP_KEY, resave:false, saveUninitialized:false, cookie: {maxAge:3600000}}));
+// FAKE SESSION
 if(process.env.APP_ENV === 'dev') {
     app.use((req,res, next) => {
         req.session.user = {
