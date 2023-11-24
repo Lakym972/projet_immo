@@ -2,6 +2,7 @@ let homeController = require('../src/controllers/HomeController.js');
 let registerController = require('../src/controllers/RegisterController.js');
 let loginController = require('../src/controllers/LoginController.js');
 let adminController = require('../src/controllers/AdminController.js');
+let realitiesController = require('../src/controllers/RealitiesController.js');
 
 module.exports = (app) => {
 
@@ -53,5 +54,31 @@ module.exports = (app) => {
         adminController.update(req, res)
     });
 
-}
+    app.get('/admin/realities', (req, res) => {
+        realitiesController.index(req, res)
+    });
 
+    app.get('/admin/realities/delete/:id([0-9]+)', (req, res) => {
+        realitiesController.supp(req, res)
+    });
+
+    app.post('/admin/realities', (req, res) => {
+        realitiesController.process(req, res)
+    });
+
+    app.get('/admin/realities/register', (req, res) => {
+        realitiesController.register(req, res)
+    });
+
+    app.post('/admin/realities/register', (req, res) => {
+        realitiesController.process(req, res)
+    });
+    
+    app.get('/admin/realities/edit/:id([0-9]+)', (req, res) => {
+        realitiesController.edit(req, res)
+    });
+
+    app.post('/admin/realities/edit/:id([0-9]+)', (req, res) => {
+        realitiesController.update(req, res)
+    });
+}

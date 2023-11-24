@@ -12,11 +12,11 @@ app.use(session({secret: process.env.APP_KEY, resave:false, saveUninitialized:fa
 if(process.env.APP_ENV === 'dev') {
     app.use((req,res, next) => {
         req.session.user = {
-            id : '2',
+            id : 11,
             gender : '1',
             firstname : 'Anthony',
             lastname : 'PIERRE-CHARLES',
-            email : 'thor@gmail.com'
+            email : 'batman@gmail.com'
         };
         next();
     });

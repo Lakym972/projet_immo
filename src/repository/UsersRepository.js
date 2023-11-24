@@ -3,7 +3,7 @@ const con = require('../../app/database_sql.js');
 module.exports = class UsersRepository {
 
     async add(user) {
-        await con.promise().query('INSERT INTO `users` SET ?', user);
+        return await con.promise().query('INSERT INTO `users` SET ?', user);
     }
 
     async existEmail(email) {
@@ -36,8 +36,8 @@ module.exports = class UsersRepository {
 
     async editUser(user, id) {
         return await con.promise().query(
-            'UPDATE `users` SET `firstname` = ?, `lastname` = ?, `email` = ?, `gender` = ? WHERE `users`.`id`= ?', 
-            [user.firstname, user.lastname, user.email, user.gender, id]
+            'UPDATE `users` SET `firstname` = ?, `lastname` = ?, `email` = ?, `phone` = ?, `gender` = ? WHERE `users`.`id`= ?', 
+            [user.firstname, user.lastname, user.email, user.phone, user.gender, id]
         );
     }
 }

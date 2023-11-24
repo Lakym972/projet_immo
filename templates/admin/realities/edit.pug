@@ -1,0 +1,110 @@
+extends ../adminLayout.pug
+
+block content 
+
+    h1 Modifier un bien
+    hr
+
+    .container 
+        form.row.g-5(method="post")
+
+            .col-md-7.col-lg-6
+                    h4.medium adresse du bien
+                    .col-12
+                            label.form-label(for="contact_name") Nom du vendeur 
+                            span.text-body-secondary
+                            input.form-control(type="text" name="contact_name" value = lastname)
+                    .col-12
+                            label.form-label(for="address1") Adresse
+                            span.text-body-secondary
+                            input.form-control(type="text" name="address1", placeholder="adresse" value = address1)
+                    .col-12
+                            span.text-body-secondary
+                            input.form-control(type="text" name="address2", placeholder="suite adresse" value = address2)
+                    .col-12
+                            label.form-label(for="zipcode") Code Postal 
+                            span.text-body-secondary
+                            input.form-control(type="text" name="zipcode" value = zipcode)
+                    .col-12
+                            label.form-label(for="town") Ville 
+                            span.text-body-secondary
+                            input.form-control(type="text" name="town" value = town)
+                    .col-12
+                            label.form-label(for="info_address") Informations complémentaires 
+                            span.text-body-secondary 
+                            input.form-control(type="textarea" name="info_address", placeholder="Distance des transports en commun..." value = info_address) 
+
+
+            .col-md-5.col-lg-6
+                h4.medium Contact du bien
+                .col-12
+                        label.form-label(for="gender") Genre
+                        select(class="form-control" placeholder="gender" name="gender")
+                            option(value="1") Monsieur
+                            option(value="2") Madame
+                .col-12
+                        label.form-label(for="lastname") Nom 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="lastname" value= lastname)
+                .col-12
+                        label.form-label(for="firstname") Prénom 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="firstname" value= firstname)
+                .col-12
+                        label.form-label(for="email") Email 
+                        span.text-body-secondary
+                        input.form-control(type="email" name="email" value= email)
+                .col-12
+                        label.form-label(for="mobile") Mobile
+                        span.text-body-secondary
+                        input.form-control(type="text" name="mobile" value= mobile)
+                .col-12
+                        label.form-label(for="phone") Téléphone 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="phone" value= phone)
+                .col-12
+                        label.form-label(for="info_contact") Informations complémentaires 
+                        span.text-body-secondary
+                        input.form-control(type="textarea" name="info_contact", placeholder="Disponibilité..." value= info_contact)
+
+            
+            .col-md-7.col-lg-12.order-md-last 
+                h4.medium informations du bien
+                .col-6
+                    label.form-label(for="type") Type de bien
+                    select(class="form-control" placeholder="type" name="type")
+                        option(value="1") Maison
+                        option(value="2") Apartement
+                        option(value="3") Villa
+                        option(value="4") chateux
+                        option(value="5") Domaine
+                .col-6
+                        label.form-label(for="price") Prix Net vendeur 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="price" value = price)
+                .col-6
+                        label.form-label(for="com") commission 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="com1", placeholder="montant de commission" value = "20 000")
+                .col-6
+                        span.text-body-secondary
+                        input.form-control(type="text" name="com2", placeholder="% commission" value = "10")
+                .col-6
+                        label.form-label(for="area") Surface(m²) 
+                        span.text-body-secondary
+                        input.form-control(type="text" name="area", placeholder="Surface en m² " value = area)
+                .col-6
+                        label.form-label(for="room") Pieces
+                        span.text-body-secondary
+                        input.form-control(type="text" name="romm", placeholder="Nombre de pieces" value = room)
+                .col-6
+                        label.form-label(for="type_vente") Type de vente
+                        select(class="form-control" placeholder="type_vente" name="type_vente")
+                            option(value="1") Ancien
+                            option(value="2") Nouveaux
+                .col-6
+                        label.form-label(for="info") Infos Complémentaires
+                        span.text-body-secondary
+                        input.form-control(type="textarea" name="info", placeholder="Travaux à éffectuer..." value = info)
+                hr.my-4
+                button.w-100.btn.btn-primary.btn-lg(type="submit") Modifier
