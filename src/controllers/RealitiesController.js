@@ -112,7 +112,7 @@ class RealitiesController {
         .setGender(req.body.gender)
         .setInfo_contact(req.body.info_contact);
 
-        ContactsRepo.updateContact(entityContacts).then((contact) => {
+        ContactsRepo.updateContact(entityContacts, req.params.id).then((contact) => {
             let entityRealities = new Realities();
             const RealitiesRepo = new RealitiesRepository();
             entityRealities
@@ -132,7 +132,7 @@ class RealitiesController {
             .setInfo(req.body.info)
             .setCreated_data(new Date());
 
-            RealitiesRepo.updateRealities(entityRealities).then(() => {
+            RealitiesRepo.updateRealities(entityRealities, req.params.id).then(() => {
                 req.flash('notify', 'Votre bien à été modifié avec succès.');
                 res.redirect('/admin/realities');
             });    

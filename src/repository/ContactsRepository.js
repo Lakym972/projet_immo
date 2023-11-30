@@ -13,6 +13,6 @@ module.exports = class ContactsRepository {
     }
 
     async updateContact(id, contact) {
-        return await con.promise().query('UPDATE `contacts` SET ? WHERE ?', [contact, {id}] );
+        return await con.promise().query('UPDATE `contacts` SET ? WHERE ?', {contact}, id );
     }
 }
